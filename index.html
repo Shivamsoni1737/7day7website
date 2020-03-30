@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="E- E-Commerece (Apple Store)">
+    <meta name="keywords" content="HTML,CSS">
+    <meta name="author" content="KISHORE RUDRARAJU">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E-Commerece Site</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+        let model = {
+            phones: [
+                {
+                    image: 'https://rkishoreraju-store.netlify.com/image1.jpeg',
+                    name: 'Apple iPhone 8 Plus || RED (Red, 256 GB)',
+                    price: 'Price : ₹ 55,990/-',
+                    list: [' 256 GB ROM ', ' 13.97 cm (5.5 inch) Retina HD Display', ' 12MP + 12MP | 7MP Front Camera', ' A11 Bionic Chip with 64-bit Architecture, Neural Engine.']
+                },
+                {
+                    image: 'https://rkishoreraju-store.netlify.com/image2.jpeg',
+                    name: 'Apple iPhone 8 Plus (Gold, 64 GB)',
+                    price: 'Price : ₹ 76,000/-',
+                    list: [' 64 GB ROM ', ' 13.97 cm (5.5 inch) Retina HD Display', ' 12MP + 12MP | 7MP Front Camera', ' A11 Bionic Chip with 64-bit Architecture with Neural Engine.']
+                },
+                {
+                    image: 'image3.jpeg',
+                    name: 'Apple iPhone 8 Plus || RED (Red, 64 GB)',
+                    price: 'Price : ₹ 49,900/-',
+                    list: [' 256 GB ROM ', ' 13.97 cm (5.5 inch) Retina HD Display', ' 12MP + 12MP | 7MP Front Camera', ' A11 Bionic Chip with 64-bit Architecture with Neural Engine.']
+                },
+                {
+                    image: 'image4.jpeg',
+                    name: 'Apple iPhone 8 Plus || RED (Red, 256 GB)',
+                    price: 'Price : ₹ 64,900/-',
+                    list: [' 64 GB ROM ', ' 13.97 cm (5.5 inch) Retina HD Display', ' 12MP + 12MP | 7MP Front Camera', ' A11 Bionic Chip with 64-bit Architecture with Neural Engine.']
+                },
+                {
+                    image: 'image5.jpeg',
+                    name: 'Apple iPhone 7 Plus (Black, 32 GB)',
+                    price: 'Price : ₹ 32,990/-',
+                    list: [' 64 GB ROM ', ' 13.97 cm (5.5 inch) Retina HD Display', ' 12MP + 12MP | 7MP Front Camera', ' A11 Bionic Chip with 64-bit Architecture with Neural Engine.']
+                },
+                {
+                    image: 'image6.jpeg',
+                    name: 'Apple iPhone 7 Plus (Rose Gold, 32 GB)',
+                    price: 'Price : ₹ 32,990/-',
+                    list: [' 64 GB ROM ', ' 13.97 cm (5.5 inch) Retina HD Display', ' 12MP + 12MP | 7MP Front Camera', ' A11 Bionic Chip with 64-bit Architecture with Neural Engine.']
+                },
+                {
+                    image: 'image7.jpeg',
+                    name: 'Apple iPhone 7 Plus (Gold, 32 GB)',
+                    price: 'Price : ₹ 31,990/-',
+                    list: [' 64 GB ROM ', ' 13.97 cm (5.5 inch) Retina HD Display', ' 12MP + 12MP | 7MP Front Camera', ' A11 Bionic Chip with 64-bit Architecture with Neural Engine.']
+                },
+                {
+                    image: 'image1.jpeg',
+                    name: 'Apple iPhone 7 Plus (Gold, 32 GB)',
+                    price: 'Price : ₹ 76,000/-',
+                    list: [' 64 GB ROM ', ' 13.97 cm (5.5 inch) Retina HD Display', ' 12MP + 12MP | 7MP Front Camera', ' A11 Bionic Chip with 64-bit Architecture with Neural Engine.']
+                },
+            ]
+        };
+
+        var pro = model['phones'];
+
+        // logo and header
+
+        var header = document.createElement("header");
+        var img = document.createElement("img");
+        img.setAttribute("src", "https://rkishoreraju-store.netlify.com/logo.png");
+        img.setAttribute("alt", "logo");
+        img.setAttribute("height", "40px");
+        img.setAttribute("width", "40px");
+        header.append(img);
+        var Content = document.createTextNode(" Apple Store");
+        header.appendChild(Content);
+        document.body.appendChild(header);
+
+        // section for the products
+
+        var section = document.createElement("section");
+        section.classList.add("products");
+        document.body.appendChild(section);
+
+        // for loop used to loop all the products
+
+        for (var i = 0; i < pro.length; i++) {
+
+            var item = document.createElement("div");
+            item.classList.add("item");
+            section.append(item);
+
+            var img = document.createElement("img");
+            img.setAttribute("src", pro[i].image);
+            img.setAttribute("alt", pro[i].name);
+            item.append(img);
+
+            var details = document.createElement("div");
+            details.classList.add("details");
+            item.append(details);
+
+            // phone modal
+
+            var title = document.createElement("p");
+            var Content = document.createTextNode(pro[i].name);
+            title.classList.add("title");
+            title.appendChild(Content);
+            details.append(title);
+
+            // phone price
+
+            var price = document.createElement("p");
+            var Content = document.createTextNode(pro[i].price);
+            price.classList.add("price");
+            price.appendChild(Content);
+            details.append(price);
+
+
+            // description about the phone in list format
+
+            var ul = document.createElement('ul');
+            details.appendChild(ul);
+
+            pro[i].list.forEach(function (name) {
+                var li = document.createElement('li');
+                ul.appendChild(li);
+                var i = document.createElement('i');
+                i.classList.add("fa");
+                i.classList.add("fa-glass");
+                li.append(i);
+                li.innerHTML += name;
+            });
+
+            // buy button 
+
+            var button = document.createElement("button");
+            button.innerHTML = "BUY NOW";
+            details.append(button);
+        }
+
+    </script>
+
+</body>
+
+</html>
